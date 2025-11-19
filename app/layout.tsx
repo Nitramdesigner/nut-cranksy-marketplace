@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import '@rainbow-me/rainbowkit/styles.css';
-import { Providers } from './providers';
 
 export const metadata: Metadata = {
   title: "The Nut Cransky | NFT Collection",
@@ -16,9 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <Providers>
-          {children}
-        </Providers>
+        {children}
       </body>
     </html>
   );
