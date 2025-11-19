@@ -1,7 +1,6 @@
 'use client'
 
-import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { useAccount } from 'wagmi'
+import { useState } from 'react'
 import Link from 'next/link'
 
 // Generate all 100 NFTs - all start at 0.5 ETH with 5 available
@@ -17,20 +16,25 @@ const mockNFTs = Array.from({ length: 100 }, (_, i) => {
 })
 
 export default function Marketplace() {
-  const { address, isConnected } = useAccount()
+  const [walletConnected, setWalletConnected] = useState(false)
+  const [walletAddress, setWalletAddress] = useState('')
+
+  const connectWallet = () => {
+    setWalletConnected(true)
+    setWalletAddress('0x742d...5e2f')
+  }
 
   const buyNFT = (nftName: string, nftPrice: number) => {
-    if (!isConnected) {
+    if (!walletConnected) {
       alert('Please connect your wallet first!')
       return
     }
-    alert(`Purchasing ${nftName} for ${nftPrice} ETH - Smart contract integration coming soon!`)
+    alert(`Purchasing ${nftName} for ${nftPrice} ETH - Coming soon!`)
   }
 
   return (
     <main className="min-h-screen bg-black">
       
-      {/* Header with Wallet Connection */}
       <div className="bg-gradient-to-b from-red-900 to-black py-8 border-b-4 border-yellow-500 sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
@@ -43,31 +47,32 @@ export default function Marketplace() {
               </h1>
             </div>
             
-            {/* Real Wallet Connection Button */}
-            <div className="scale-110">
-              <ConnectButton 
-                chainStatus="icon"
-                showBalance={false}
-              />
+            <div>
+              {walletConnected ? (
+                <div className="bg-green-600 text-white px-6 py-3 rounded-lg border-2 border-green-400">
+                  <p className="text-sm">Connected</p>
+                  <p className="font-mono text-xs">{walletAddress}</p>
+                </div>
+              ) : (
+                <button 
+                  onClick={connectWallet}
+                  className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold px-8 py-3 rounded-lg transition-all transform hover:scale-105"
+                >
+                  Connect Wallet
+                </button>
+              )}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Marketplace Info Banner */}
       <div className="bg-gradient-to-r from-purple-900 to-red-900 py-8">
         <div className="container mx-auto px-4 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">100 Unique Characters • 5 Editions Each • 500 Total Supply</h2>
           <p className="text-xl">Each NFT is a hand-drawn piece of theatrical history</p>
-          {isConnected && (
-            <p className="text-yellow-300 text-lg mt-4">
-              ✅ Wallet Connected: {address?.slice(0, 6)}...{address?.slice(-4)}
-            </p>
-          )}
         </div>
       </div>
 
-      {/* NFT Grid */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {mockNFTs.map((nft) => (
@@ -113,7 +118,6 @@ export default function Marketplace() {
         </div>
       </div>
 
-      {/* Bottom CTA */}
       <div className="bg-red-950 py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
