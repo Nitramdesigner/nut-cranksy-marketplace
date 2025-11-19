@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Home() {
@@ -7,23 +6,21 @@ export default function Home() {
       
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image 
+          <img 
             src="/images/Stage-Background-01.png"
             alt="Theater Stage"
-            fill
-            className="object-cover"
-            priority
+            className="w-full h-full object-cover"
           />
         </div>
         
         <div className="absolute inset-0 bg-black/30 z-10"></div>
         
         <div className="relative z-20 text-center px-4">
-          <Image 
+          <img 
             src="/images/The_Nut_Cransky.png"
             alt="The Nut Cransky"
-            width={680}
-            height={255}
+            width="680"
+            height="255"
             className="mx-auto mb-8 drop-shadow-2xl"
           />
           <p className="text-yellow-300 text-3xl md:text-4xl font-serif italic drop-shadow-lg">
@@ -38,11 +35,10 @@ export default function Home() {
 
       <div className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image 
+          <img 
             src="/images/Backgrounds-banner-All-Cranksy.png"
             alt="All Nut Cransky Characters"
-            fill
-            className="object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
         
@@ -80,12 +76,12 @@ export default function Home() {
         <div className="container mx-auto px-4">
           
           <div className="mb-16 text-center">
-            <Image 
+            <img 
               src="/images/The_Nut_Cranksy_Banner_Logo.png"
               alt="The Nut Cransky Theater Marquee"
-              width={1200}
-              height={800}
-              className="rounded-lg shadow-2xl mx-auto"
+              width="1200"
+              height="800"
+              className="rounded-lg shadow-2xl mx-auto max-w-4xl w-full h-auto"
             />
           </div>
 
