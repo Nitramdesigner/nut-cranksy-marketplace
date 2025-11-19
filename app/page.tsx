@@ -7,7 +7,7 @@ export default function Home() {
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/Stage-Background-01.png"
+            src="/images/Stage_Background_01.png"
             alt="Theater Stage"
             className="w-full h-full object-cover"
           />
@@ -36,7 +36,7 @@ export default function Home() {
       <div className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/Backgrounds-banner-All-Cranksy.png"
+            src="/images/Backgrounds_banner_All_Cranksy.png"
             alt="All Nut Cransky Characters"
             className="w-full h-full object-cover"
           />
