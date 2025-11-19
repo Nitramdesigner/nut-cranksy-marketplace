@@ -18,7 +18,7 @@ export default function Home() {
         <div className="relative z-20 text-center px-4">
           <img 
             src="/images/The_Nut_Cranksy.png"
-            alt="The Nut Cransky"
+            alt="The Nut Cranksy"
             width="680"
             height="255"
             className="mx-auto mb-8 drop-shadow-2xl"
@@ -157,9 +157,11 @@ export default function Home() {
               </button>
             </Link>
             
-            <button className="bg-red-700 hover:bg-red-600 text-white text-2xl font-bold py-6 px-16 rounded-lg transition-all transform hover:scale-105 shadow-2xl border-4 border-yellow-500">
-              🎟️ Enter Marketplace
-            </button>
+            <Link href="/marketplace">
+              <button className="bg-red-700 hover:bg-red-600 text-white text-2xl font-bold py-6 px-16 rounded-lg transition-all transform hover:scale-105 shadow-2xl border-4 border-yellow-500">
+                🎟️ Enter Marketplace
+              </button>
+            </Link>
           </div>
         </div>
       </div>
