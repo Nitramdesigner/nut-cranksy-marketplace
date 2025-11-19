@@ -17,7 +17,7 @@ export default function Home() {
         
         <div className="relative z-20 text-center px-4">
           <img 
-            src="/images/The_Nut_Cransky.png"
+            src="/images/The_Nut_Cranksy.png"
             alt="The Nut Cransky"
             width="680"
             height="255"
