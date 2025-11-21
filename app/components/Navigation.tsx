@@ -1,20 +1,12 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 export default function Navigation() {
-  const router = useRouter()
-
-  const handleBurnClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    router.push('/')
-    setTimeout(() => {
-      const element = document.getElementById('burn')
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
-    }, 100)
+  
+  const handleBurnClick = () => {
+    // Force full page navigation to home with anchor
+    window.location.href = '/#burn'
   }
 
   return (
@@ -22,14 +14,14 @@ export default function Navigation() {
       <div className="container mx-auto px-8 py-4">
         <div className="flex items-center justify-between">
           
-          {/* Logo */}
-          <Link href="/">
+          {/* Logo - force full reload to home */}
+          <a href="/">
             <img 
               src="/images/The_Nut_Cranksy.png"
               alt="The Nut Cransky"
               className="h-10 cursor-pointer hover:opacity-80 transition-opacity"
             />
-          </Link>
+          </a>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
@@ -44,7 +36,7 @@ export default function Navigation() {
             </Link>
             <button 
               onClick={handleBurnClick}
-              className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
+              className="text-gray-700 hover:text-gray-900 font-medium transition-colors cursor-pointer"
             >
               Burn for Art
             </button>
