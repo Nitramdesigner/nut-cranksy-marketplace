@@ -17,19 +17,18 @@ export default function Navigation() {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#carousel" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
+          <Link href="/gallery" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
               Collection
-            </a>
+            </Link>
             <Link href="/about" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
               Origin Story
             </Link>
             <Link href="/marketplace" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
               Marketplace
             </Link>
-            <a href="#burn" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
+            <Link href="/#burn" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
               Burn for Art
-            </a>
-          </div>
+            </Link>
 
           {/* Wallet Button Placeholder */}
           <div className="flex items-center gap-4">
