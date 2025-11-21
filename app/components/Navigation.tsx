@@ -26,9 +26,9 @@ export default function Navigation() {
             <Link href="/marketplace" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
               Marketplace
             </Link>
-            <Link href="/#burn" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
+            <a href="/#burn" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
               Burn for Art
-            </Link>
+            </a>
 
           {/* Wallet Button Placeholder */}
           <div className="flex items-center gap-4">
