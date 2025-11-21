@@ -1,6 +1,22 @@
+'use client'
+
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 export default function Navigation() {
+  const router = useRouter()
+
+  const handleBurnClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    router.push('/')
+    setTimeout(() => {
+      const element = document.getElementById('burn')
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }, 100)
+  }
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
       <div className="container mx-auto px-8 py-4">
@@ -17,7 +33,7 @@ export default function Navigation() {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
-          <Link href="/gallery" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
+            <Link href="/gallery" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
               Collection
             </Link>
             <Link href="/about" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
@@ -26,9 +42,13 @@ export default function Navigation() {
             <Link href="/marketplace" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
               Marketplace
             </Link>
-            <a href="/#burn" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
+            <button 
+              onClick={handleBurnClick}
+              className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
+            >
               Burn for Art
-            </a>
+            </button>
+          </div>
 
           {/* Wallet Button Placeholder */}
           <div className="flex items-center gap-4">
