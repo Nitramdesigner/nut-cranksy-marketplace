@@ -19,12 +19,12 @@ export default function Marketplace() {
     number: i < 10 ? String(i).padStart(4, '0') : String(i).padStart(5, '0'),
     name: `Character ${i}`,
     image: `/images/characters/nut-cranksy-${i < 10 ? String(i).padStart(4, '0') : String(i).padStart(5, '0')}.png`,
-    price: Math.floor(Math.random() * 500) + 50, // Random price 50-550 XRP
-    available: i < 95, // First 95 available, last 5 "sold out" for scarcity
+    price: 0.35,
+    available: i < 95,
     rarity: i < 10 ? 'Legendary' : i < 30 ? 'Epic' : i < 60 ? 'Rare' : 'Common',
     editions: {
       total: 5,
-      remaining: i < 95 ? Math.floor(Math.random() * 5) + 1 : 0
+      remaining: i < 95 ? 5 : 0  // Fixed - all available have 5 editions
     }
   }))
 
@@ -102,7 +102,7 @@ export default function Marketplace() {
               {/* Price Range */}
               <div>
                 <label className="text-sm font-semibold text-gray-900 mb-2 block">
-                  Price range (XRP)
+                Price range (ETH) to Price range (ETH)
                 </label>
                 <div className="flex gap-2 items-center mb-2">
                   <input
@@ -244,9 +244,8 @@ export default function Marketplace() {
 
                     {char.available && (
                       <>
-                        <div className="flex items-baseline gap-1 mb-3">
-                          <span className="text-2xl font-bold text-gray-900">{char.price}</span>
-                          <span className="text-sm text-gray-500">XRP</span>
+                        <div className="mb-3">
+                          <span className="text-2xl font-bold text-gray-900">{char.price} ETH</span>
                         </div>
 
                         <div className="text-xs text-gray-500 mb-3">
@@ -335,10 +334,8 @@ export default function Marketplace() {
                   
                   {allCharacters[selectedCharacter].available && (
                     <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-4xl font-bold text-gray-900">
-                        {allCharacters[selectedCharacter].price}
-                      </span>
-                      <span className="text-xl text-gray-500">XRP</span>
+                      <span className="text-xl text-gray-500">ETH</span> to <span className="text-xl text-gray-500">ETH</span>
+                      <span className="text-xl text-gray-500">ETH</span>
                     </div>
                   )}
 
@@ -371,7 +368,7 @@ export default function Marketplace() {
                 {allCharacters[selectedCharacter].available ? (
                   <div className="space-y-3 pt-4">
                     <button className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold py-4 rounded-xl transition-all shadow-lg text-lg">
-                      🎟️ Buy Now - {allCharacters[selectedCharacter].price} XRP
+                    🎟️ Buy Now - {allCharacters[selectedCharacter].price} ETH to 🎟️ Buy Now - {allCharacters[selectedCharacter].price} ETH
                     </button>
                     <p className="text-xs text-center text-gray-500">
                       Coming Soon - Join waitlist to be notified at launch
