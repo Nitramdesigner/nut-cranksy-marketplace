@@ -67,60 +67,55 @@ export default function Gallery() {
         <Navigation />
 
         {/* Hero */}
-        <section className="gallery-hero-section pt-24 pb-8 md:py-20 bg-gradient-to-b from-gray-50 to-white">
-          <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-            
-            {/* Title and Description - Separate from inputs */}
-            <div className="text-center mb-6 md:mb-8">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif text-gray-900 mb-3 md:mb-4">
-                The Complete Collection
-              </h1>
-              <p className="text-base md:text-xl text-gray-600">
-                100 hand-drawn characters. Each one a transformation.
-              </p>
-            </div>
-            
-            {/* Search and Sort - Stack vertically on mobile */}
-            <div className="gallery-controls flex flex-col gap-3 md:gap-4 max-w-2xl mx-auto mb-4 md:mb-6">
-              
-              {/* Search */}
-              <div className="relative w-full">
-                <input
-                  type="text"
-                  placeholder="Search by name or number..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full px-6 py-3 rounded-full border-2 border-gray-300 focus:border-gray-900 focus:outline-none text-lg"
-                />
-                {searchTerm && (
-                  <button
-                    onClick={() => setSearchTerm('')}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-900"
-                  >
-                    ✕
-                  </button>
-                )}
-              </div>
+<section className="pt-24 pb-8 bg-gradient-to-b from-gray-50 to-white">
+  <div className="px-4 max-w-2xl mx-auto">
+    
+    {/* Title - centered, full width */}
+    <h1 className="text-center text-2xl font-serif text-gray-900 mb-3 w-full">
+      The Complete Collection
+    </h1>
+    
+    {/* Description - centered, full width */}
+    <p className="text-center text-base text-gray-600 mb-6 w-full">
+      100 hand-drawn characters. Each one a transformation.
+    </p>
+    
+    {/* Search - full width, centered */}
+    <div className="relative mb-3 w-full">
+      <input
+        type="text"
+        placeholder="Search by name or number..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="w-full px-6 py-3 rounded-full border-2 border-gray-300 focus:border-gray-900 focus:outline-none text-base block"
+      />
+      {searchTerm && (
+        <button
+          onClick={() => setSearchTerm('')}
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
+        >
+          ✕
+        </button>
+      )}
+    </div>
 
-              {/* Sort */}
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="w-full px-6 py-3 rounded-full border-2 border-gray-300 focus:border-gray-900 focus:outline-none text-lg bg-white cursor-pointer"
-              >
-                <option value="number">Sort by Number</option>
-                <option value="name">Sort by Name</option>
-              </select>
+    {/* Sort - full width, centered */}
+    <select
+      value={sortBy}
+      onChange={(e) => setSortBy(e.target.value)}
+      className="w-full px-6 py-3 rounded-full border-2 border-gray-300 focus:border-gray-900 focus:outline-none text-base bg-white block mb-4"
+    >
+      <option value="number">Sort by Number</option>
+      <option value="name">Sort by Name</option>
+    </select>
 
-            </div>
-
-            {/* Results count */}
-            <p className="text-sm md:text-base text-gray-500 text-center">
-              Showing {filteredCharacters.length} of 100 characters
-            </p>
-            
-          </div>
-        </section>
+    {/* Results - centered, full width */}
+    <p className="text-center text-sm text-gray-500 w-full block">
+      Showing {filteredCharacters.length} of 100 characters
+    </p>
+    
+  </div>
+</section>
 
         {/* Gallery Grid */}
         <section className="py-12 bg-white">
