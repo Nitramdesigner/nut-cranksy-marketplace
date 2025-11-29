@@ -1,11 +1,11 @@
 'use client'
-
 import { useState } from 'react'
 import Link from 'next/link'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  
+
   const handleBurnClick = () => {
     window.location.href = '/#burn'
     setMobileMenuOpen(false)
@@ -15,7 +15,6 @@ export default function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
       <div className="container mx-auto px-8 py-4">
         <div className="flex items-center justify-between">
-          
           {/* Logo */}
           <a href="/">
             <img 
@@ -46,9 +45,7 @@ export default function Navigation() {
 
           {/* Desktop Wallet Button */}
           <div className="hidden md:flex items-center gap-4">
-            <button className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-2 rounded-full font-medium transition-all">
-              Connect Wallet
-            </button>
+            <ConnectButton />
           </div>
 
           {/* Mobile Hamburger */}
@@ -64,7 +61,6 @@ export default function Navigation() {
               )}
             </svg>
           </button>
-
         </div>
 
         {/* Mobile Menu */}
@@ -98,13 +94,12 @@ export default function Navigation() {
               >
                 Burn for Art
               </button>
-              <button className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-full font-medium transition-all w-full">
-                Connect Wallet
-              </button>
+              <div className="pt-2">
+                <ConnectButton />
+              </div>
             </div>
           </div>
         )}
-
       </div>
     </nav>
   )
