@@ -12,7 +12,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold">The Nut Cranksy</span>
+          <img src="/images/The_Nut_Cranksy.png" alt="The Nut Cranksy" className="h-10" />
           </Link>
 
           {/* Desktop Navigation */}
