@@ -131,8 +131,8 @@ export default function Gallery() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white pt-24 pb-8 md:py-20">
-        <div className="container mx-auto px-4 md:px-8">
+      <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white pt-32 pb-8 md:pt-32 md:pb-12">
+      <div className="container mx-auto px-4 pt-24 pb-8">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">The Gallery</h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl">Explore all 100 hand-drawn theatrical transformations of The Nut Cranksy</p>
         </div>
