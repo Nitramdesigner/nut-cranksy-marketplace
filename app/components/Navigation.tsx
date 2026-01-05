@@ -1,5 +1,4 @@
 'use client'
-
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -12,7 +11,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-          <img src="/images/The_Nut_Cranksy.png" alt="The Nut Cranksy" className="h-10" />
+            <img src="/images/The_Nut_Cranksy.png" alt="The Nut Cranksy" className="h-10" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -20,10 +19,14 @@ export default function Navigation() {
             <Link href="/" className="hover:text-gray-600 transition">Home</Link>
             <Link href="/about" className="hover:text-gray-600 transition">About</Link>
             <Link href="/gallery" className="hover:text-gray-600 transition">Gallery</Link>
-            <Link href="/marketplace" className="hover:text-gray-600 transition">Marketplace</Link>
-            <button className="bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
-              Connect Wallet (Coming Soon)
-            </button>
+            <a 
+              href="https://opensea.io/collection/the-nut-cranksy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+            >
+              Buy on OpenSea
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -47,10 +50,14 @@ export default function Navigation() {
             <Link href="/" className="block hover:text-gray-600 transition">Home</Link>
             <Link href="/about" className="block hover:text-gray-600 transition">About</Link>
             <Link href="/gallery" className="block hover:text-gray-600 transition">Gallery</Link>
-            <Link href="/marketplace" className="block hover:text-gray-600 transition">Marketplace</Link>
-            <button className="w-full bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
-              Connect Wallet (Coming Soon)
-            </button>
+            <a 
+              href="https://opensea.io/collection/the-nut-cranksy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-center"
+            >
+              Buy on OpenSea
+            </a>
           </div>
         )}
       </div>

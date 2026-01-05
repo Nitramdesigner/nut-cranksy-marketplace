@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Navigation from '../components/Navigation'
 
 const GALLERY_DATA = [
-  {id:0,number:"0000",name:"Literally Me",description:"Cranksy is pointing out the obvious, if you haven't caught on yet—you want this toy soldier to dance ballet, crack nuts, or beat the drum."},
+  {id:0,number:"0000",name:"Nutcracker Prince",description:"The original prince transformed into a nutcracker, cursed by the Mouse King. Based on E.T.A. Hoffmann's tale, this is where all theatrical transformations begin."},
   {id:1,number:"0001",name:"King Georging",description:"Cranksy was obsessed with a sold-out crowd admiring the King in Hamilton's performance and his over-the-top style and comedic mannerisms."},
   {id:2,number:"0002",name:"Hoffmann Cranks",description:"Cranksy stands stoic, a wooden symbol used during the holidays to lively up the scenery, and yearly I get to do my performance of a lifetime dancing and warding of Mouse King."},
   {id:3,number:"0003",name:"Curly Rangu",description:"Cranksy liked the accent and twang of one of the set designers' styles and one night he left his cowboy hat and boots —yeehaw!"},
@@ -84,7 +84,7 @@ const GALLERY_DATA = [
   {id:76,number:"00076",name:"Itzak",description:"Cranksy pulled some punk-rock wigs and dressed down in drag from a rock musical from East Berlin, residing in Kansas and rocking it until the silent \"bye.\""},
   {id:77,number:"00077",name:"Bea",description:"Cranksy dresses up as the main character's wife in this Renaissance brother duo singing, dancing, and acting out in a musical comedy."},
   {id:78,number:"00078",name:"William The Nut",description:"Cranksy utters the words, \"To be, or not to be,\" in one of these legacies many works, from tragedies to comedies, from Hamlet to Romeo and Juliet and many more, a legend unbeknownst."},
-  {id:79,number:"00079",name:"Proteus The Nut",description:"Cranksy plays lifelong friends who leave their rural home in Verona for the “big city” of Milan and falls in love, all the while learning to serve selflessly and happily in the best way we can."},
+  {id:79,number:"00079",name:"Proteus The Nut",description:"Cranksy plays lifelong friends who leave their rural home in Verona for the \"big city\" of Milan and falls in love, all the while learning to serve selflessly and happily in the best way we can."},
   {id:80,number:"00080",name:"Flynn The Nut",description:"Cranksy portrays a beloved priest in a church school in the Bronx defending against an accusation that had the audience with the discomfort of their uncertainties."},
   {id:81,number:"00081",name:"Aloysius the Nun",description:"Cranksy nun-ed it up and created drama in the Bronx by realizing that the only way to get justice is to create it herself —this will test her faith."},
   {id:82,number:"00082",name:"Robotanksy",description:"Cranksy raided the ol' prop room and got excited to get into an old robot relic and squeeze into a glass bubble— up to no good."},
@@ -104,7 +104,8 @@ const GALLERY_DATA = [
   {id:96,number:"00096",name:"Bin The Nut",description:"Cranksy loves to break it down with rhythmic percussion beats using brooms, matchboxes, garbage cans, and zippo lighters energizing the stage with nonstop —STOMPS."},
   {id:97,number:"00097",name:"Evan The Nut",description:"A socially anxious high schooler, Evan the Cranksy, becomes entangled in a massive lie about his friendship with a deceased peer, all thanks to a totally misinterpreted, self-addressed letter!"},
   {id:98,number:"00098",name:"Betelgueuse",description:"Betelgueuse deader than ever! A strange and unusual teenager whose whole life changes when she meets a recently deceased couple and a demon with a thing for stripes."},
-  {id:99,number:"00099",name:"Leonard",description:"A nautical character with a charmingly off-kilter grin, a thick brown beard, a smoking pipe, and an octopus tattoo, all while sporting a crisp white captain's hat and a smart blue uniform."}]
+  {id:99,number:"00099",name:"Leonard",description:"A nautical character with a charmingly off-kilter grin, a thick brown beard, a smoking pipe, and an octopus tattoo, all while sporting a crisp white captain's hat and a smart blue uniform."}
+]
 
 export default function Gallery() {
   const [selectedCharacter, setSelectedCharacter] = useState<number | null>(null)
@@ -130,15 +131,21 @@ export default function Gallery() {
     <main className="min-h-screen bg-gray-50">
       <Navigation />
       
-      {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white pt-32 pb-8 md:pt-32 md:pb-12">
-      <div className="container mx-auto px-4 pt-24 pb-8">
+        <div className="container mx-auto px-4 pt-24 pb-8">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">The Gallery</h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl">Explore all 100 hand-drawn theatrical transformations of The Nut Cranksy</p>
+          <a
+            href="https://opensea.io/collection/the-nut-cranksy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold transition"
+          >
+            View Collection on OpenSea →
+          </a>
         </div>
       </section>
 
-      {/* Search and Filter */}
       <div className="container mx-auto px-4 md:px-8 py-8">
         <div className="flex flex-col gap-4 mb-8">
           <div className="relative">
@@ -179,7 +186,6 @@ export default function Gallery() {
           </div>
         </div>
 
-        {/* Gallery Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {filteredCharacters.map((char) => (
             <div
@@ -195,7 +201,7 @@ export default function Gallery() {
                 />
               </div>
               <div className="p-3">
-                <p className="text-xs text-gray-500">#{char.number}</p>
+                <p className="text-xs text-gray-500">#{(char.id + 1).toString().padStart(4, '0')}</p>
                 <p className="font-bold text-sm mt-1 truncate">{char.name}</p>
               </div>
             </div>
@@ -215,23 +221,23 @@ export default function Gallery() {
         )}
       </div>
 
-      {/* CTA Section */}
       <section className="bg-gray-900 text-white py-16 mt-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Own a Piece?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Visit the marketplace to browse available editions and make your purchase
+            The Nut Cranksy Collection is now available on OpenSea
           </p>
-          <Link
-            href="/marketplace"
+          <a
+            href="https://opensea.io/collection/the-nut-cranksy"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-white text-gray-900 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition"
           >
-            Visit Marketplace
-          </Link>
+            Buy on OpenSea
+          </a>
         </div>
       </section>
 
-      {/* Character Modal */}
       {selectedCharacter !== null && allCharacters[selectedCharacter] && (
         <div onClick={() => setSelectedCharacter(null)} className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
           <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-2xl max-w-3xl w-full p-8 relative max-h-[90vh] overflow-auto">
@@ -241,15 +247,17 @@ export default function Gallery() {
             <div className="grid md:grid-cols-2 gap-8">
               <img src={allCharacters[selectedCharacter].image} alt={allCharacters[selectedCharacter].name} className="w-full rounded-xl" />
               <div>
-                <p className="text-sm text-gray-500">#{allCharacters[selectedCharacter].number}</p>
+                <p className="text-sm text-gray-500">#{(allCharacters[selectedCharacter].id + 1).toString().padStart(4, '0')}</p>
                 <h2 className="text-3xl font-bold mt-2">{allCharacters[selectedCharacter].name}</h2>
                 <p className="mt-4 text-gray-700 leading-relaxed">{allCharacters[selectedCharacter].description}</p>
-                <Link
-                  href="/marketplace"
-                  className="block w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl mt-6 transition text-center"
+                <a
+                  href="https://opensea.io/collection/the-nut-cranksy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl mt-6 transition text-center"
                 >
-                  View in Marketplace
-                </Link>
+                  Buy on OpenSea →
+                </a>
               </div>
             </div>
           </div>

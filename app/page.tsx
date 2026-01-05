@@ -56,46 +56,42 @@ export default function Home() {
       </section>
 
       {/* Who is the Nut Cransky */}
-      <section id="carousel" className="py-20 bg-gray-900">
-        <div className="container mx-auto px-8">
-          
-          <h2 className="text-4xl md:text-5xl font-serif text-white text-center mb-8">
-            Who is the Nut Cransky?
-          </h2>
-
-          {/* Paragraph - narrower, left-aligned */}
-          <p className="text-lg text-gray-300 text-left max-w-4xl mx-auto leading-relaxed mb-8">
-            Is more than just a decorative prop; it is a theatrical spirit undergoing THE METAMORPHOSIS every single night. Once the velvet curtains drop and the house lights dim, this unique nutcracker, which has silently witnessed the performance, magically transforms. Whether it was The Phantom of the Opera lurking in the shadows, the majestic cast of The Lion King, a nimble feline from Cats, or even the ordinary figures outside the theater like maintenance workers and police officers, the Nut Cransky becomes them all. Each of these 100 custom NFTs captures one of these fleeting, midnight transformations, embodying the entire, unforgettable spectacle of the stage.
-          </p>
-
-          {/* Tagline - bigger, bold */}
-          <p className="text-2xl md:text-3xl font-serif font-bold text-yellow-400 text-center mb-12">
-            100 hand-drawn characters. Pre-AI. Pure artistry.
-          </p>
-
-          <div className="relative -mx-8 overflow-hidden">
-            <div className="flex gap-4 pb-4 animate-scroll">
-              {[...carouselCharacters, ...carouselCharacters, ...carouselCharacters].map((num, index) => {
-                const imgNum = num < 10 ? String(num).padStart(4, '0') : String(num).padStart(5, '0')
-                return (
-                  <div key={`${num}-${index}`} className="flex-shrink-0 w-40 bg-white rounded-lg overflow-hidden shadow-lg">
-                    <img
-                      src={`/images/characters/nut-cranksy-${imgNum}.png`}
-                      alt={`Character ${num}`}
-                      className="w-full h-40 object-cover"
-                    />
-                    <div className="p-2 text-center">
-                      <p className="text-xs text-gray-500">Name of Character</p>
-                      <p className="text-sm font-semibold text-gray-900">#{imgNum}</p>
-                    </div>
-                  </div>
-                )
-              })}
+<section id="carousel" className="py-20 bg-gray-900">
+  <div className="container mx-auto px-8">
+    <h2 className="text-4xl md:text-5xl font-serif text-white text-center mb-8">
+      Who is the Nut Cransky?
+    </h2>
+    {/* Paragraph - narrower, left-aligned */}
+    <p className="text-lg text-gray-300 text-left max-w-4xl mx-auto leading-relaxed mb-8">
+      Is more than just a decorative prop; it is a theatrical spirit undergoing THE METAMORPHOSIS every single night. Once the velvet curtains drop and the house lights dim, this unique nutcracker, which has silently witnessed the performance, magically transforms. Whether it was The Phantom of the Opera lurking in the shadows, the majestic cast of The Lion King, a nimble feline from Cats, or even the ordinary figures outside the theater like maintenance workers and police officers, the Nut Cransky becomes them all. Each of these 100 custom NFTs captures one of these fleeting, midnight transformations, embodying the entire, unforgettable spectacle of the stage.
+    </p>
+    {/* Tagline - bigger, bold */}
+    <p className="text-2xl md:text-3xl font-serif font-bold text-yellow-400 text-center mb-12">
+      100 hand-drawn characters. Pre-AI. Pure artistry.
+    </p>
+    <div className="relative -mx-8 overflow-hidden">
+      <div className="flex gap-4 pb-4 animate-scroll">
+        {[...carouselCharacters, ...carouselCharacters, ...carouselCharacters].map((num, index) => {
+          const imgNum = num < 10 ? String(num).padStart(4, '0') : String(num).padStart(5, '0')
+          const displayNum = String(num + 1).padStart(4, '0')
+          return (
+            <div key={`${num}-${index}`} className="flex-shrink-0 w-40 bg-white rounded-lg overflow-hidden shadow-lg">
+              <img
+                src={`/images/characters/nut-cranksy-${imgNum}.png`}
+                alt={`Character ${num + 1}`}
+                className="w-full h-40 object-cover"
+              />
+              <div className="p-2 text-center">
+                <p className="text-xs text-gray-500">Name of Character</p>
+                <p className="text-sm font-semibold text-gray-900">#{displayNum}</p>
+              </div>
             </div>
-          </div>
-
-        </div>
-      </section>
+          )
+        })}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Origin Story */}
       <section className="py-20 bg-white">

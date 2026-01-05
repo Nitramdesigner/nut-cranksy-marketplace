@@ -15,6 +15,7 @@
     "@base-org/account": "^2.5.0",
     "@supabase/supabase-js": "^2.47.10",
     "@walletconnect/utils": "^2.23.0",
+    "fraction.js": "^5.3.4",
     "next": "16.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
